@@ -23,6 +23,20 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sRz-H4-Ait" id="LEQ-M7-Dax">
                                     <rect key="frame" x="0.0" y="0.0" width="281" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yCI-fV-LxB">
+                                            <rect key="frame" x="10" y="10" width="261" height="23.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="yCI-fV-LxB" secondAttribute="bottom" constant="10" id="W8U-0b-9Kz"/>
+                                        <constraint firstAttribute="trailing" secondItem="yCI-fV-LxB" secondAttribute="trailing" constant="10" id="vMf-bh-S89"/>
+                                        <constraint firstItem="yCI-fV-LxB" firstAttribute="leading" secondItem="LEQ-M7-Dax" secondAttribute="leading" constant="10" id="wGc-nQ-8XU"/>
+                                        <constraint firstItem="yCI-fV-LxB" firstAttribute="top" secondItem="LEQ-M7-Dax" secondAttribute="top" constant="10" id="zKz-2H-NLi"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
