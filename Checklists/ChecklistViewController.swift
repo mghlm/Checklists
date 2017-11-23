@@ -41,6 +41,21 @@ class ChecklistViewController: UITableViewController {
         row4Item.checked = false
         items.append(row4Item)
         
+        let row5Item = ChecklistItem()
+        row5Item.text = "Something"
+        row5Item.checked = false
+        items.append(row5Item)
+        
+        let row6Item = ChecklistItem()
+        row6Item.text = "Something else"
+        row6Item.checked = false
+        items.append(row6Item)
+        
+        let row7Item = ChecklistItem()
+        row7Item.text = "Boom shakalaka"
+        row7Item.checked = false
+        items.append(row7Item)
+        
         super.init(coder: aDecoder)
     }
 
