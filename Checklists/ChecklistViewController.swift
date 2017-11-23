@@ -10,16 +10,35 @@ import UIKit
 
 class ChecklistViewController: UITableViewController {
     
-    let row0Text = "Walk dog"
-    let row1Text = "Brush teeth"
-    let row2Text = "Learn iOS dev"
-    let row3Text = "Practice soccer"
-    let row4Text = "Eat ice cream"
-    var row0Checked = false
-    var row1Checked = false
-    var row2Checked = false
-    var row3Checked = false
-    var row4Checked = false
+    var row0Item: ChecklistItem
+    var row1Item: ChecklistItem
+    var row2Item: ChecklistItem
+    var row3Item: ChecklistItem
+    var row4Item: ChecklistItem
+    
+    required init?(coder aDecoder: NSCoder) {
+        row0Item = ChecklistItem()
+        row0Item.text = "Walk Dog"
+        row0Item.checked = false
+        
+        row1Item = ChecklistItem()
+        row1Item.text = "Brush Teeth"
+        row1Item.checked = false
+        
+        row2Item = ChecklistItem()
+        row2Item.text = "Learn iOS"
+        row2Item.checked = false
+        
+        row3Item = ChecklistItem()
+        row3Item.text = "Practice Soccer"
+        row3Item.checked = false
+        
+        row4Item = ChecklistItem()
+        row4Item.text = "Eat Ice Cream"
+        row4Item.checked = false
+        
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,36 +55,11 @@ class ChecklistViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         if let cell = tableView.cellForRow(at: indexPath) {
-            
-            var isChecked = false
-            
-            if indexPath.row == 0 {
-                row0Checked = !row0Checked
-                isChecked = row0Checked
-            }
-            if indexPath.row == 1 {
-                row1Checked = !row1Checked
-                isChecked = row1Checked
-            }
-            if indexPath.row == 2 {
-                row2Checked = !row2Checked
-                isChecked = row2Checked
-            }
-            if indexPath.row == 3 {
-                row3Checked = !row3Checked
-                isChecked = row3Checked
-            }
-            if indexPath.row == 4 {
-                row4Checked = !row4Checked
-                isChecked = row4Checked
-            }
-            if isChecked {
-                cell.accessoryType = .checkmark
-            } else {
-                cell.accessoryType = .none
-            }
+            configureCheckmark(for: cell, at: indexPath)
         }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -75,19 +69,19 @@ class ChecklistViewController: UITableViewController {
         let label = cell.viewWithTag(1000) as! UILabel
         
         if indexPath.row == 0 {
-            label.text = row0Text
+            label.text = row0Item.text
         }
         if indexPath.row == 1 {
-            label.text = row1Text
+            label.text = row1Item.text
         }
         if indexPath.row == 2 {
-            label.text = row2Text
+            label.text = row2Item.text
         }
         if indexPath.row == 3 {
-            label.text = row3Text
+            label.text = row3Item.text
         }
         if indexPath.row == 4 {
-            label.text = row4Text
+            label.text = row4Item.text
         }
         
         configureCheckmark(for: cell, at: indexPath)
@@ -98,19 +92,24 @@ class ChecklistViewController: UITableViewController {
     func configureCheckmark(for cell: UITableViewCell, at indexPath: IndexPath) {
         var isChecked = false
         if indexPath.row == 0 {
-            isChecked = row0Checked
+            isChecked = row0Item.checked
+            row0Item.checked = !row0Item.checked
         }
         if indexPath.row == 1 {
-            isChecked = row1Checked
+            isChecked = row1Item.checked
+            row1Item.checked = !row1Item.checked
         }
         if indexPath.row == 2 {
-            isChecked = row2Checked
+            isChecked = row2Item.checked
+            row2Item.checked = !row2Item.checked
         }
         if indexPath.row == 3 {
-            isChecked = row3Checked
+            isChecked = row3Item.checked
+            row3Item.checked = !row3Item.checked
         }
         if indexPath.row == 4 {
-            isChecked = row4Checked
+            isChecked = row4Item.checked
+            row4Item.checked = !row4Item.checked
         }
         
         if isChecked {
